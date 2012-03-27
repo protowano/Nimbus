@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Go to /space
+cd /space
+
+# Make everything BUT Unsorted owned by root.users
+chown -R root.users `ls /space | grep -vi Unsorted`
+
+# Make everything BUT Unsorted mode 755
+chmod -R 755 `ls /space | grep -vi Unsorted`
+
+# Make Pictures/ 775 for iPhoto
+#chmod -R 775 /space/Pictures
+chmod -R 755 /space/Pictures
+
+# Make Unsorted itself owned by root.users
+chown root.users /space/Unsorted
+
+# Make Unsorted and everything in Unsorted mode 775
+# and then Unsorted itself 755
+chmod -R 775 /space/Unsorted
+chmod 755 /space/Unsorted
+
+
+# TEMPORARY: Make Music/ owned by me for butler
+# Make 'sorted' share read-only!
+chown -R empurium /space/Audio/Music/`date '+%Y'`
+
+
+# Make lost+found/ owned by root.root and mode 700
+chown root.root /space/lost+found
+chmod 700 /space/lost+found
+

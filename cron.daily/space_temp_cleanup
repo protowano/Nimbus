@@ -1,0 +1,4 @@
+#!/bin/sh
+
+find /space/Unsorted/Temp -mtime -14 -exec rm -rf {} \;
+
